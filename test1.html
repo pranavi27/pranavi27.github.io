@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>text grow n shrink</title>
+		<script>
+			var load,font=10;
+			function start()
+			{
+				load=window.setInterval("incr()",100)
+			}
+			function incr()
+			{
+				font=font+1;
+				dis.innerHTML="text growing "+font+"pt";
+				dis.style.fontSize=font+"pt";
+				dis.style.color="red";
+				if(font >50)
+				{
+					window.clearTimeout(load);
+					load=window.setInterval("decr()",100);
+				}
+			}
+			
+			function decr()
+			{
+				font=font-1;
+				dis.innerHTML="text shrinking "+font+"pt";
+				dis.style.fontSize=font+"pt";
+				dis.style.color="blue"
+				if(font <5)
+				{
+					window.clearTimeout(load);
+					load=window.setInterval("incr()",100);
+				}
+			}
+		</script>	
+	</head>
+	<center>
+	<body background-color="grey" margin-top="300px" onload="start()">
+		<p id="dis"></p>
+	</body>
+	</center>
+	
+</html>
